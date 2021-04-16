@@ -25,16 +25,19 @@ searchBtn.disabled = true;
 let nextBtn = document.getElementById('nextBtn');
 let backBtn = document.getElementById('backBtn')
 let increment = "";
+nextBtn.disabled = true;
+backBtn.disabled = true;
+
 
 //funciones de ejecucion
 function getPokemon() {
   //let id = input.value;
-   if(!Boolean(parseInt(input.value)) || increment == ""){
+  if (!Boolean(parseInt(input.value)) || increment == "") {
     var id = input.value;
   } else {
     //increment = parseInt(input.value);
     id = increment;
-  } 
+  }
 
   //Eliminar los elementos agregados de alguna carga anterior.
   removeData()
@@ -48,7 +51,7 @@ function getPokemon() {
       idPokemon.innerText = `Pokemon # ${pokemon.id}`;//***** Intentar paginacion */
       input.value = pokemon.id; //**** Ya realizo una sin usar next */
       increment = ""; // Limpiar increment 
-      
+
       //Obtener abilidades del pokemon.
       pokemon.abilities.forEach(element => {
         let parrafo = document.createElement('p');
@@ -101,6 +104,8 @@ function turnOn() {
     turnParrafo.innerText = 'Turn Off';
     input.disabled = false;
     searchBtn.disabled = false;
+    nextBtn.disabled = false;
+    backBtn.disabled = false;
     turn = 'on';
     AbilitiesNeon.style.color = "rgb(57, 255, 20)"
   } else {
@@ -108,6 +113,8 @@ function turnOn() {
     turnParrafo.innerText = 'Turn On';
     input.disabled = true;
     searchBtn.disabled = true;
+    nextBtn.disabled = true;
+    backBtn.disabled = true;
     input.value = "";
     turn = 'off';
     pokemonImg.src = "/pokeIcons/screenOff.png";
