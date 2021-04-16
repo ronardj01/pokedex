@@ -9,8 +9,9 @@ let idPokemon = document.getElementById('idPokemon');
 let turnImage = document.getElementById('turnImage');
 
 //Variables funcion turOn
-let turn = 'off'; 
+let turn = 'off';
 let turnParrafo = document.getElementById('turnParrafo');
+let AbilitiesNeon = document.querySelector('#abilities h2');
 
 //Varibles de las imagenes de los pokemon.
 let pokemonImg = document.getElementById('pokemonImg');
@@ -19,13 +20,14 @@ let pokemonImg = document.getElementById('pokemonImg');
 input.value = '';
 input.disabled = true;
 
+//valores iniciales
+
+//funciones de ejecucion
 function getPokemon() {
   let id = input.value;
 
   //Eliminar los elementos agregados de alguna carga anterior.
-  document.querySelectorAll(`#abilities p`).forEach(p => p.remove());
-  document.querySelectorAll(`#types p`).forEach(p => p.remove());
-  document.querySelectorAll(`#types img`).forEach(img => img.remove());
+  removeData()
 
   fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
     .then(response => response.json())
@@ -82,18 +84,30 @@ function getTypesImages(typeOfPokemon, img) {
 
 //funcion para encender pokedex.
 function turnOn() {
-    if (turn === 'off') {
+  if (turn === 'off') {
     turnImage.src = 'pokeIcons/encendido1.png';
     turnParrafo.innerText = 'Turn Off';
     input.disabled = false;
     turn = 'on';
+    AbilitiesNeon.style.color = "rgb(57, 255, 20)"
   } else {
     turnImage.src = 'pokeIcons/apagado.png';
     turnParrafo.innerText = 'Turn On';
     input.disabled = true;
     input.value = "";
-    turn = 'off'
+    turn = 'off';
+    pokemonImg.src = "/pokeIcons/screenOff.png";
+    AbilitiesNeon.style.color = 'black';
+    removeData();
   }
+}
+
+//funcion para eliminar las datas cargadas
+function removeData() {
+  document.querySelectorAll(`#abilities p`).forEach(p => p.remove());
+  document.querySelectorAll(`#types p`).forEach(p => p.remove());
+  document.querySelectorAll(`#types img`).forEach(img => img.remove());
+  pokemonName.innerText = "";
 }
 
 //Funcionalidades de los botones.
