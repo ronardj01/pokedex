@@ -128,3 +128,8 @@ h1,
 #types p {
   font-family: 'Black Ops One';
 }
+
+/*Estilos de la paginacion*/
+#paginacion {
+  display: flex;
+}

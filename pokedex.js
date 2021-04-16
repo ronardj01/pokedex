@@ -17,14 +17,24 @@ let AbilitiesNeon = document.querySelector('#abilities h2');
 let pokemonImg = document.getElementById('pokemonImg');
 
 //Desabilitar input y limpiar valores.
-input.value = '';
+input.value = "1";
 input.disabled = true;
+searchBtn.disabled = true;
 
-//valores iniciales
+//Varibales de los botones de paginacion.
+let nextBtn = document.getElementById('nextBtn');
+let backBtn = document.getElementById('backBtn')
+let increment = "";
 
 //funciones de ejecucion
 function getPokemon() {
-  let id = input.value;
+  //let id = input.value;
+   if(!Boolean(parseInt(input.value)) || increment == ""){
+    var id = input.value;
+  } else {
+    //increment = parseInt(input.value);
+    id = increment;
+  } 
 
   //Eliminar los elementos agregados de alguna carga anterior.
   removeData()
@@ -36,7 +46,9 @@ function getPokemon() {
       pokemonName.innerText = pokemon.name;
       pokemonImg.src = pokemon.sprites.front_default;
       idPokemon.innerText = `Pokemon # ${pokemon.id}`;//***** Intentar paginacion */
-
+      input.value = pokemon.id; //**** Ya realizo una sin usar next */
+      increment = ""; // Limpiar increment 
+      
       //Obtener abilidades del pokemon.
       pokemon.abilities.forEach(element => {
         let parrafo = document.createElement('p');
@@ -88,12 +100,14 @@ function turnOn() {
     turnImage.src = 'pokeIcons/encendido1.png';
     turnParrafo.innerText = 'Turn Off';
     input.disabled = false;
+    searchBtn.disabled = false;
     turn = 'on';
     AbilitiesNeon.style.color = "rgb(57, 255, 20)"
   } else {
     turnImage.src = 'pokeIcons/apagado.png';
     turnParrafo.innerText = 'Turn On';
     input.disabled = true;
+    searchBtn.disabled = true;
     input.value = "";
     turn = 'off';
     pokemonImg.src = "/pokeIcons/screenOff.png";
@@ -110,7 +124,22 @@ function removeData() {
   pokemonName.innerText = "";
 }
 
+//funciones de paginacion.
+function nextPokemon() {
+  increment = parseInt(input.value);
+  increment += 1
+  getPokemon()
+}
+
+function backPokemon() {
+  increment = parseInt(input.value);
+  increment -= 1
+  getPokemon()
+}
+
 //Funcionalidades de los botones.
 searchBtn.addEventListener('click', getPokemon);
 turnImage.addEventListener('click', turnOn);
+nextBtn.addEventListener('click', nextPokemon);
+backBtn.addEventListener('click', backPokemon);
 
