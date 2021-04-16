@@ -1,33 +1,47 @@
+/*Estilos generles*/
+body {
+  background-color: black;
+
+}
+
+p#idPokemon {
+  text-align: center;
+  margin: 0px;
+  color: rgb(33, 132, 224);
+}
+
 div {
   border: dotted 1px;
 }
 
 h1,
 #pokemonName {
-  color: blue;
+  color: rgb(33, 132, 224);
   text-align: center;
   text-transform: uppercase;
+  font-family: 'Cabin Sketch';
 }
 
 /* Estilos del div input */
 #inputs {
   /*text-align: end;*/
   display: flex;
-  justify-content: space-around;
-  margin-right: 8rem;
-  margin-left: 8rem;
+  justify-content: space-between;
+  align-items: center;
+  margin-right: 12rem;
+  margin-left: 12rem;
   border-top-right-radius: 75px;
   border-bottom-right-radius: 75px;
-  background-color: red;
+  background-color: rgb(199, 32, 32);
 }
 
 #nameInput,
 #searchBtn {
   font-size: 1.3rem;
-  margin-right: 15px;
   border-radius: 14px;
   text-align: center;
   border: solid 2px wheat;
+  margin-left: 25px;
 }
 
 #searchBtn {
@@ -36,29 +50,38 @@ h1,
   padding: 15px;
 }
 
+/*Boton para encender*/
 #turnImage {
   width: 55px;
-  margin-right: 25px;
+  margin-right: 35px;
+  padding-top: 5px;
+}
+
+#turnParrafo,
+#abilities p,
+#types p {
+  color: rgb(80, 194, 240);
+  font-weight: bold;
 }
 
 /*Estilos de la imagen*/
-#img {
+#imgDisplay {
   display: flex;
   flex-direction: column;
-  padding-left: 30px;
-  padding-right: 30px;
-  padding-bottom: 30px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+  border: solid 15px goldenrod;
+  border-radius: 45px;
+  background-color: rgb(44, 36, 36);
 }
 
 #pokemonImg {
   width: 250px;
   align-self: center;
-  border: solid 15px goldenrod;
-  border-radius: 45px;
-  background-color: black;
 }
 
-#img p {
+#imgDisplay p {
   align-self: center;
   text-transform: uppercase;
   color: white;
@@ -71,7 +94,8 @@ h1,
   margin-left: 6rem;
   margin-right: 6rem;
   border-top-left-radius: 75px;
-  background-color: red;
+  background-color: rgb(199, 32, 32);
+  border: solid 5px;
 }
 
 #abilities,
@@ -81,11 +105,26 @@ h1,
   text-align: center;
 }
 
-#types {
-  /*border: solid;*/
+#types img {
+  width: 90px;
 }
 
 #pokeBallImg {
+  display: block;
+  margin: auto;
   width: 75px;
   padding-top: 15px;
+}
+
+#abilities h2 {
+  font-family: 'Monoton';
+  font-size: 4rem;
+}
+#abilities p {
+  font-size: 32px;
+  font-family: 'Black Ops One';
+}
+
+#types p {
+  font-family: 'Black Ops One';
 }
