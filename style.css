@@ -1,0 +1,73 @@
+div {
+    border: dotted 1px;
+ }
+ h1, #pokemonName {
+    color: blue;
+    text-align: center;
+    text-transform: uppercase;
+ }
+  
+ /* Estilos del div input */
+ #inputs {
+    text-align: end;
+    margin-right: 2rem;
+ }
+  
+ #nameInput, #searchBtn {
+    font-size: 1.3rem;
+    margin-right: 15px;
+    border-radius: 14px;
+    text-align: center;
+    border: solid 2px wheat;
+ }
+  
+ #searchBtn {
+    background-color: darkblue;
+    color: white;
+    padding: 15px;
+ }
+  
+ /*Estilos de la imagen*/
+ #img {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+ }
+  
+ #pokemonImg {
+    width: 350px;
+    align-self: center;
+    border: solid 15px goldenrod;
+    border-radius: 45px;
+ }
+  
+ #img p {
+    align-self: center;
+    text-transform: uppercase;
+ }
+ /*Estilo generales */
+ #info {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 45px;
+ }
+  
+ #abilities, #types {
+    align-self: center;
+    text-transform: capitalize;
+    text-align: center;
+ }
+  
+ #types {
+    /*border: solid;*/
+ }
+  
+ #pokeBallImg {
+    width: 90px;
+    padding-top: 15px;
+ }
+  
